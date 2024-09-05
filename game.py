@@ -4,10 +4,14 @@ word =''
 import os
 import subprocess
 
-subprocess.run('clear')
+subprocess.run('clear',shell=True)
 from string import ascii_uppercase as ab
 if word=='':
-    word = os.environ['word']
+    try:
+        word = os.environ['word']
+    except KeyError:
+       # print("Answer not set correctly!, exiting game now")
+        raise KeyError("Answer not set correctly!, exiting game now") from KeyError 
 print("Welcome to the Aidandle! Make guesses below!")
 ls = list(ab)
 ld = dict()
@@ -15,7 +19,6 @@ gd = dict()
 for l in ls:
     ld[l] = 0
     gd[l] = 0
-#word ='coder'
 word= word.upper()
 wsp = list(word)
 
@@ -24,7 +27,11 @@ for l in wsp:
 #print(ld)
 i=0
 while True:
-    gs = input('GUESS: ')
+    try:
+        gs = input('GUESS: ')
+    except BaseException:
+        #subprocess.run(args="source ./us.sh",shell=True)
+        raise BaseException('An error has occurred, exiting game now') from BaseException
     gsp = list(gs.upper())
     out = ''
     if len(gsp) !=len(wsp):
