@@ -1,5 +1,5 @@
-#from word import *
-word =''
+from word import *
+#word =''
 #figure out how to import alphabet characters
 import os
 import subprocess
