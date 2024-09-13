@@ -1,2 +1,2 @@
 # CONGRATULATIONS!!! YOU HAVE JUST CHEATED!!! YOU SUCK!!!
-word = 'hairy'
+word = 'retch'
